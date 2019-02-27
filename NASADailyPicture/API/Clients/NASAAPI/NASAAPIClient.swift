@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public typealias responseData = (date: String?, explanation: String?, mediaType: String?, serviceVersion: String?, title: String?, url: String?)
+public typealias ResponseData = (date: String?, explanation: String?, mediaType: String?, serviceVersion: String?, title: String?, url: String?)
 
 final class NASAAPIClient {
     
@@ -51,15 +51,15 @@ final class NASAAPIClient {
         task.resume()
     }
     
-    public func getNASAImage() {
+    public func getNASAAPIData() -> ResponseData {
+        var date: String?
+        var explanation: String?
+        var mediaType: String?
+        var serviceVersion: String?
+        var title: String?
+        var url: String?
+        
         NASAAPIClient.get { (data) in
-            var date: String?
-            var explanation: String?
-            var mediaType: String?
-            var serviceVersion: String?
-            var title: String?
-            var url: String?
-            
             for (key, value) in data {
                 print("\(key) - \(value) ")
             }
@@ -97,5 +97,6 @@ final class NASAAPIClient {
                 url = urlResponse
             }
         }
+        return ResponseData(date: date, explanation: explanation, mediaType: mediaType, serviceVersion: serviceVersion, title: title, url: url)
     }
 }
