@@ -97,9 +97,8 @@
 		30175AE2222618AE0092D18A /* NASADailyPicture */ = {
 			isa = PBXGroup;
 			children = (
+				30175B11222619270092D18A /* Main */,
 				30175AE3222618AE0092D18A /* AppDelegate.swift */,
-				30175AE5222618AE0092D18A /* ViewController.swift */,
-				30175AE7222618AE0092D18A /* Main.storyboard */,
 				30175AEA222618AF0092D18A /* Assets.xcassets */,
 				30175AEC222618AF0092D18A /* LaunchScreen.storyboard */,
 				30175AEF222618AF0092D18A /* Info.plist */,
@@ -123,6 +122,15 @@
 				30175B05222618B00092D18A /* Info.plist */,
 			);
 			path = NASADailyPictureUITests;
+			sourceTree = "<group>";
+		};
+		30175B11222619270092D18A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				30175AE5222618AE0092D18A /* ViewController.swift */,
+				30175AE7222618AE0092D18A /* Main.storyboard */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
