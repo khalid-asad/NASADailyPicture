@@ -18,7 +18,13 @@ struct ImageDisplayModel {
     
     var stackableItems: [ImageDisplayModel.StackableItem]! {
         guard let image = UIImage(named: "hanny-naibaho") else { return [] }
+        NASAAPIClient().getNASAImage()
         return [StackableItem.imageDisplay(inputData: InputData(title: "blah", image: image))]
     }
+}
+
+extension ImageDisplayModel {
+    
+
 }
 
