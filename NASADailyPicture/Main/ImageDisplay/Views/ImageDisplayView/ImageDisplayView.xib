@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dL6-dF-Uv2">
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dL6-dF-Uv2">
                     <rect key="frame" x="123.5" y="279.5" width="128" height="128"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="128" id="5fD-bE-Ocg"/>
@@ -54,7 +54,7 @@
         </view>
         <tapGestureRecognizer id="cAE-Hk-Q6J">
             <connections>
-                <action selector="didTapImage:" destination="iN0-l3-epB" id="4z9-Wc-dWA"/>
+                <action selector="didTapImage:" destination="iN0-l3-epB" id="Zx4-hM-Drh"/>
             </connections>
         </tapGestureRecognizer>
     </objects>

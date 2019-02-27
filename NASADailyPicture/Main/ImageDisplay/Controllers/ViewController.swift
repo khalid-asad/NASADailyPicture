@@ -48,7 +48,9 @@ extension ViewController {
         imageDisplayView.didTapImage = { (newImageView) in
             let tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissFullscreenImage))
             newImageView.addGestureRecognizer(tap)
-            self.view.addSubview(newImageView)
+            UIView.animate(withDuration: 0.35) {
+                self.view.addSubview(newImageView)
+            }
             self.navigationController?.isNavigationBarHidden = true
             self.tabBarController?.tabBar.isHidden = true
         }
@@ -57,7 +59,9 @@ extension ViewController {
     @objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
         self.navigationController?.isNavigationBarHidden = false
         self.tabBarController?.tabBar.isHidden = false
-        sender.view?.removeFromSuperview()
+        UIView.animate(withDuration: 0.35) {
+            sender.view?.removeFromSuperview()
+        }
     }
 }
 
