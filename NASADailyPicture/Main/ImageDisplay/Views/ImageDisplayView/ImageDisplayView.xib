@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dL6-dF-Uv2">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dL6-dF-Uv2">
                     <rect key="frame" x="123.5" y="279.5" width="128" height="128"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="128" id="5fD-bE-Ocg"/>
@@ -26,8 +26,8 @@
                         <outletCollection property="gestureRecognizers" destination="cAE-Hk-Q6J" appends="YES" id="eA7-su-cZk"/>
                     </connections>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dga-Xm-jrA">
-                    <rect key="frame" x="166.5" y="423.5" width="42" height="20.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dga-Xm-jrA">
+                    <rect key="frame" x="0.0" y="423.5" width="375" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -37,10 +37,12 @@
             <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="dL6-dF-Uv2" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="2wL-eA-O25"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Dga-Xm-jrA" secondAttribute="trailing" id="8P9-TS-u2W"/>
                 <constraint firstItem="Dga-Xm-jrA" firstAttribute="top" secondItem="dL6-dF-Uv2" secondAttribute="bottom" constant="16" id="PbP-H8-Apg"/>
                 <constraint firstItem="dL6-dF-Uv2" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="WId-Wr-kqO"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Dga-Xm-jrA" secondAttribute="bottom" constant="16" id="aYm-D0-2hr"/>
                 <constraint firstItem="Dga-Xm-jrA" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="dOF-Vb-83O"/>
+                <constraint firstItem="Dga-Xm-jrA" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="riB-Rw-FnU"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>

@@ -19,6 +19,7 @@
 		30175B1E22261F880092D18A /* UIConfigureable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30175B1D22261F880092D18A /* UIConfigureable.swift */; };
 		30175B21222621150092D18A /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30175B20222621150092D18A /* UIImageView+Extensions.swift */; };
 		30175B23222622570092D18A /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30175B22222622570092D18A /* UIView+Extensions.swift */; };
+		30175B27222625670092D18A /* ImageDisplayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30175B26222625670092D18A /* ImageDisplayModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		30175B1D22261F880092D18A /* UIConfigureable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConfigureable.swift; sourceTree = "<group>"; };
 		30175B20222621150092D18A /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		30175B22222622570092D18A /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		30175B26222625670092D18A /* ImageDisplayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDisplayModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 		30175B1322261C760092D18A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				30175B26222625670092D18A /* ImageDisplayModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30175B27222625670092D18A /* ImageDisplayModel.swift in Sources */,
 				30175B23222622570092D18A /* UIView+Extensions.swift in Sources */,
 				30175B21222621150092D18A /* UIImageView+Extensions.swift in Sources */,
 				30175B1E22261F880092D18A /* UIConfigureable.swift in Sources */,
