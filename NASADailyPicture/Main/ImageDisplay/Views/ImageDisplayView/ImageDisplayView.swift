@@ -9,16 +9,18 @@
 import Foundation
 import UIKit
 
-typealias InputData = (title: String, image: String)
+typealias InputData = (title: String, image: UIImage)
 
 final class ImageDisplayView: UIView {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dailyImageView: UIImageView!
+    @IBOutlet weak var imageHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var imageWidthConstraint: NSLayoutConstraint!
     
     private var isExpanded: Bool = false
     
-    var didTapImage: ((UIView) -> Void)
+    var didTapImage: ((UIView) -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -43,8 +45,9 @@ extension ImageDisplayView {
 extension ImageDisplayView {
     
     private func configure(inputData: InputData) {
-        titleLabel.configure(text: postInformation.title)
-        dailyImageView.setAutoScaledImage(inputImage: postInformation.postImage, widthConstraint: postImageWidth, heightConstraint: postImageHeight)
+        titleLabel.configure(text: inputData.title)
+        imageHeightConstraint.constant = UIScreen.main.bounds.height/2
+        dailyImageView.setAutoScaledImage(inputImage: inputData.image, widthConstraint: imageWidthConstraint, heightConstraint: imageHeightConstraint)
     }
 }
 
@@ -60,6 +63,4 @@ extension ImageDisplayView {
         newImageView.isUserInteractionEnabled = true
         didTapImage?(newImageView)
     }
-    
-    
 }
