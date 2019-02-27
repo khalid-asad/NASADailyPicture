@@ -13,23 +13,17 @@ struct ImageDisplayModel {
     
     // MARK: - ItemStackable
     enum StackableItem {
-        case date(date: String?)
         case video(url: String?)
         case image(image: UIImage?)
+        case date(date: String?)
         case title(title: String?)
         case explanation(explanation: String?)
     }
     
     var stackableItems: [ImageDisplayModel.StackableItem]! {
-        //guard let image = UIImage(named: "hanny-naibaho") else { return [] }
-        
         var items: [StackableItem] = []
         
         let response = NASAAPIClient().getNASAAPIData()
-        
-        if let date = response.date {
-            items.append(.date(date: date))
-        }
         
         if let mediaType = response.mediaType, let url = response.url {
             if mediaType == "video" {
@@ -38,6 +32,10 @@ struct ImageDisplayModel {
                 //download image
                 //items.append(.image(url: image))
             }
+        }
+        
+        if let date = response.date {
+            items.append(.date(date: date))
         }
         
         if let title = response.title {

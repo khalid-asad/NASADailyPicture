@@ -74,15 +74,15 @@ final class NASAAPIClient {
             
             if let mediaTypeResponse = data["media_type"] as? String {
                 mediaType = mediaTypeResponse
-                if mediaType == "image" {
-                    NASAAPIClient.downloadImage(urlString: data["url"] as? String ?? "", completion: { (success, image) in
-                        if !success {
-                            print("Error: Image not downloaded.")
-                        }
-                    })
-                } else if mediaType == "video" {
-                    
-                }
+//                if mediaType == "image" {
+//                    NASAAPIClient.downloadImage(urlString: data["url"] as? String ?? "", completion: { (success, image) in
+//                        if !success {
+//                            print("Error: Image not downloaded.")
+//                        }
+//                    })
+//                } else if mediaType == "video" {
+//
+//                }
             }
             
             if let serviceVersionResponse = data["serviceVersion"] as? String {
