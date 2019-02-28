@@ -29,7 +29,7 @@ struct NasaAPIResponse: Codable {
     }
     
     static func fetchData(completionHandler: @escaping (NasaAPIResponse?, Error?) -> Void) {
-        #warning("Move this key to info plist")
+        #warning("Move this into the cloud")
         let clientKey = "NNKOjkoul8n1CH18TWA9gwngW1s1SmjESPjNoUFo"
 //        let clientKey = "HsOIijCrXICAmzeyai7MeVz2x8tNPZEBxuQ4mpn9"
         guard let nasaUrl = URL(string: "https://api.nasa.gov/planetary/apod?api_key=" + clientKey) else { return }
