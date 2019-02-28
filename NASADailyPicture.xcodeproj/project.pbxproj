@@ -21,6 +21,8 @@
 		30175B23222622570092D18A /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30175B22222622570092D18A /* UIView+Extensions.swift */; };
 		30175B27222625670092D18A /* ImageDisplayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30175B26222625670092D18A /* ImageDisplayModel.swift */; };
 		30175B2D222636A10092D18A /* NASAAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30175B2C222636A10092D18A /* NASAAPIClient.swift */; };
+		30175B3B22279C730092D18A /* UIConfigureableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30175B3A22279C730092D18A /* UIConfigureableTests.swift */; };
+		30175B3F22279E480092D18A /* ImageDisplayModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30175B3E22279E480092D18A /* ImageDisplayModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		30175B22222622570092D18A /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		30175B26222625670092D18A /* ImageDisplayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDisplayModel.swift; sourceTree = "<group>"; };
 		30175B2C222636A10092D18A /* NASAAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAAPIClient.swift; sourceTree = "<group>"; };
+		30175B3A22279C730092D18A /* UIConfigureableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConfigureableTests.swift; sourceTree = "<group>"; };
+		30175B3E22279E480092D18A /* ImageDisplayModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDisplayModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +128,9 @@
 		30175AF7222618AF0092D18A /* NASADailyPictureTests */ = {
 			isa = PBXGroup;
 			children = (
+				30175B3D22279E360092D18A /* Models */,
+				30175B3C22279E1C0092D18A /* Extensions */,
+				30175B3922279C5B0092D18A /* Protocols */,
 				30175AF8222618AF0092D18A /* NASADailyPictureTests.swift */,
 				30175AFA222618B00092D18A /* Info.plist */,
 			);
@@ -232,6 +239,29 @@
 				30175B2C222636A10092D18A /* NASAAPIClient.swift */,
 			);
 			path = NASAAPI;
+			sourceTree = "<group>";
+		};
+		30175B3922279C5B0092D18A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				30175B3A22279C730092D18A /* UIConfigureableTests.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		30175B3C22279E1C0092D18A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		30175B3D22279E360092D18A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				30175B3E22279E480092D18A /* ImageDisplayModelTests.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -381,6 +411,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30175B3F22279E480092D18A /* ImageDisplayModelTests.swift in Sources */,
+				30175B3B22279C730092D18A /* UIConfigureableTests.swift in Sources */,
 				30175AF9222618AF0092D18A /* NASADailyPictureTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

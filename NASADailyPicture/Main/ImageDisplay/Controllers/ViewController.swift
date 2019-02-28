@@ -37,35 +37,26 @@ extension ViewController {
         guard let items = model.stackableItems else { return }
         items.forEach {
             switch $0 {
-            case .video(let url):
-                addVideo(url: url)
-            case .image(let image):
-                addImageToBeDisplayed(image: image)
-            case .date(let date):
-                addDate(date: date)
-            case .title(let title):
-                addTitle(title: title)
-            case .explanation(let explanation):
-                addExplanation(explanation: explanation)
+            case .video(let url, let date, let title, let explanation):
+                addVideo(url: url, date: date, title: title, explanation: explanation)
+            case .image(let image, let date, let title, let explanation):
+                addImageToBeDisplayed(image: image, date: date, title: title, explanation: explanation)
             }
         }
     }
     
-    private func addDate(date: String?) {
-        
-    }
-    
-    private func addVideo(url: URL?) {
-        let videoDisplayView = ImageDisplayView.create(image: defaultImage)
+    private func addVideo(url: URL?, date: String?, title: String?, explanation: String?) {
+        let videoDisplayView = ImageDisplayView.create(image: defaultImage, date: date, title: title, description: explanation)
         stackView.addArrangedSubview(UIView.createView(withSubview: videoDisplayView, edgeInsets: .zero))
         
         videoDisplayView.didTapImage = { (newImageView) in
-            // open youtube
+            guard let url = url else { return }
+            UIApplication.shared.open(url)
         }
     }
     
-    private func addImageToBeDisplayed(image: UIImage?) {
-        let imageDisplayView = ImageDisplayView.create(image: image)
+    private func addImageToBeDisplayed(image: UIImage?, date: String?, title: String?, explanation: String?) {
+        let imageDisplayView = ImageDisplayView.create(image: image, date: date, title: title, description: explanation)
         stackView.addArrangedSubview(UIView.createView(withSubview: imageDisplayView, edgeInsets: .zero))
         
         imageDisplayView.didTapImage = { (newImageView) in
@@ -78,17 +69,7 @@ extension ViewController {
             self.tabBarController?.tabBar.isHidden = true
         }
     }
-    
-    private func addTitle(title: String?) {
-        
-    }
-    
-    private func addExplanation(explanation: String?) {
-        
-    }
-    
 
-    
     @objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
         self.navigationController?.isNavigationBarHidden = false
         self.tabBarController?.tabBar.isHidden = false

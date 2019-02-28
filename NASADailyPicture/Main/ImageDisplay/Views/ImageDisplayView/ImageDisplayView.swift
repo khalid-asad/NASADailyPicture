@@ -13,6 +13,8 @@ final class ImageDisplayView: UIView {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dailyImageView: UIImageView!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var imageHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var imageWidthConstraint: NSLayoutConstraint!
     
@@ -24,38 +26,33 @@ final class ImageDisplayView: UIView {
         super.awakeFromNib()
         
         titleLabel.font = UIFont(name: "HelveticaNeue", size: 20)
-        titleLabel.textColor = UIColor.black
+        descriptionLabel.font = UIFont(name: "HelveticaNeue", size: 16)
+        dateLabel.font = UIFont(name: "HelveticaNeue", size: 16)
+        [titleLabel, descriptionLabel, dateLabel].forEach() {
+            $0.textColor = UIColor.black
+        }
+        
     }
 }
 
 // MARK: - Internal Methods
 extension ImageDisplayView {
     
-    static func create(image: UIImage?) -> ImageDisplayView {
+    static func create(image: UIImage?, date: String?, title: String?, description: String?) -> ImageDisplayView {
         let view: ImageDisplayView = .fromNib()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.configure(image: image)
+        view.configure(image: image, date: date, title: title, description: description)
         return view
     }
-    
-//    static func setTitle(title: String?) {
-//        titleLabel.configure(text: title)
-//    }
-//
-//    static func setExplanation(explanation: String?) {
-//        titleLabel.configure(text: explanation)
-//    }
-//
-//    static func setDate(date: String?) {
-//        titleLabel.configure(text: date)
-//    }
 }
 
 // MARK: - Private Methods
 extension ImageDisplayView {
     
-    private func configure(image: UIImage?) {
-        //titleLabel.configure(text: "")
+    private func configure(image: UIImage?, date: String?, title: String?, description: String?) {
+        dateLabel.configure(text: date)
+        titleLabel.configure(text: title)
+        descriptionLabel.configure(text: description)
         imageHeightConstraint.constant = UIScreen.main.bounds.height/2
         dailyImageView.setAutoScaledImage(inputImage: image, widthConstraint: imageWidthConstraint, heightConstraint: imageHeightConstraint)
     }
