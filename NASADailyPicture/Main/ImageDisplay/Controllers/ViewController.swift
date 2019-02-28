@@ -55,7 +55,7 @@ extension ViewController {
         
     }
     
-    private func addVideo(url: String?) {
+    private func addVideo(url: URL?) {
         let videoDisplayView = ImageDisplayView.create(image: defaultImage)
         stackView.addArrangedSubview(UIView.createView(withSubview: videoDisplayView, edgeInsets: .zero))
         

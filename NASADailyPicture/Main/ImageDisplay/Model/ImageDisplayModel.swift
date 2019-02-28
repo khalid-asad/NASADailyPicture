@@ -13,7 +13,7 @@ struct ImageDisplayModel {
     
     // MARK: - ItemStackable
     enum StackableItem {
-        case video(url: String?)
+        case video(url: URL?)
         case image(image: UIImage?)
         case date(date: String?)
         case title(title: String?)
@@ -21,37 +21,58 @@ struct ImageDisplayModel {
     }
     
     var stackableItems: [ImageDisplayModel.StackableItem]! {
+        fetch() { stackItems in
+            return stackItems
+        }
+        return []
+    }
+    
+    func fetch(completion: @escaping ([ImageDisplayModel.StackableItem]) -> ()) {
         var items: [StackableItem] = []
         
-        let response = NASAAPIClient().getNASAAPIData()
-        
-        if let mediaType = response.mediaType, let url = response.url {
-            if mediaType == "video" {
-                items.append(.video(url: url))
-            } else if mediaType == "image" {
-                //download image
-                //items.append(.image(url: image))
+        NasaAPIResponse.fetchData(completionHandler: { (data, error) in
+            if let error = error {
+                print(error)
+                return
             }
-        }
-        
-        if let date = response.date {
-            items.append(.date(date: date))
-        }
-        
-        if let title = response.title {
-            items.append(.title(title: title))
-        }
-        
-        if let explanation = response.explanation {
-            items.append(.explanation(explanation: explanation))
-        }
-        
-        return items
+            guard let data = data else {
+                print("Error getting first todo: result is nil")
+                return
+            }
+            
+            debugPrint(data)
+            
+            if let mediaType = data.mediaType {
+                print(mediaType)
+                if mediaType == "video" {
+                    items.append(.video(url: data.url))
+                } else if mediaType == "image" {
+                    NASAAPIClient.downloadImage(inputURL: data.url, completion: { (success, image) in
+                        if !success {
+                            print("Error: Image not downloaded.")
+                        } else {
+                            items.append(.image(image: image))
+                        }
+                    })
+                }
+            }
+            
+            if let date = data.date {
+                print(date)
+                items.append(.date(date: date))
+            }
+            
+            if let title = data.title {
+                print(title)
+                items.append(.title(title: title))
+            }
+            
+            if let explanation = data.explanation {
+                print(explanation)
+                items.append(.explanation(explanation: explanation))
+            }
+            completion(items)
+        })
+        completion(items)
     }
 }
-
-extension ImageDisplayModel {
-    
-
-}
-
