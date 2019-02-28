@@ -13,21 +13,11 @@ struct ImageDisplayModel {
     
     // MARK: - ItemStackable
     enum StackableItem {
-        case video(url: URL?)
-        case image(image: UIImage?)
-        case date(date: String?)
-        case title(title: String?)
-        case explanation(explanation: String?)
+        case video(url: URL?, date: String?, title: String?, explanation: String?)
+        case image(image: UIImage?, date: String?, title: String?, explanation: String?)
     }
     
     var stackableItems: [ImageDisplayModel.StackableItem]! {
-        fetch() { stackItems in
-            return stackItems
-        }
-        return []
-    }
-    
-    func fetch(completion: @escaping ([ImageDisplayModel.StackableItem]) -> ()) {
         var items: [StackableItem] = []
         
         NasaAPIResponse.fetchData(completionHandler: { (data, error) in
@@ -42,37 +32,23 @@ struct ImageDisplayModel {
             
             debugPrint(data)
             
-            if let mediaType = data.mediaType {
+            if let mediaType = data.mediaType, let url = data.url, let date = data.date, let title = data.title, let explanation = data.explanation {
                 print(mediaType)
                 if mediaType == "video" {
-                    items.append(.video(url: data.url))
+                    items.append(.video(url: url, date: date, title: title, explanation: explanation))
                 } else if mediaType == "image" {
-                    NASAAPIClient.downloadImage(inputURL: data.url, completion: { (success, image) in
+                    NASAAPIClient.downloadImage(inputURL: url, completion: { (success, image) in
                         if !success {
                             print("Error: Image not downloaded.")
                         } else {
-                            items.append(.image(image: image))
+                            items.append(.image(image: image, date: date, title: title, explanation: explanation))
                         }
                     })
                 }
             }
-            
-            if let date = data.date {
-                print(date)
-                items.append(.date(date: date))
-            }
-            
-            if let title = data.title {
-                print(title)
-                items.append(.title(title: title))
-            }
-            
-            if let explanation = data.explanation {
-                print(explanation)
-                items.append(.explanation(explanation: explanation))
-            }
-            completion(items)
         })
-        completion(items)
+        #warning("REMOVE THIS - THIS IS BAD PRACTICE!!")
+        sleep(3)
+        return items
     }
 }

@@ -28,8 +28,8 @@ struct NasaAPIResponse: Codable {
         case url
     }
     
-    static func fetchData(completionHandler: @escaping (NasaAPIResponse?, Error?) -> Void) -> Void {
-        #warning("Move this key to info plist")
+    static func fetchData(completionHandler: @escaping (NasaAPIResponse?, Error?) -> Void) {
+        #warning("Move this into the cloud")
         let clientKey = "NNKOjkoul8n1CH18TWA9gwngW1s1SmjESPjNoUFo"
 //        let clientKey = "HsOIijCrXICAmzeyai7MeVz2x8tNPZEBxuQ4mpn9"
         guard let nasaUrl = URL(string: "https://api.nasa.gov/planetary/apod?api_key=" + clientKey) else { return }
@@ -41,44 +41,15 @@ struct NasaAPIResponse: Codable {
                 let responseData = try decoder.decode(NasaAPIResponse.self, from: data)
                 
                 completionHandler(responseData, nil)
-                return
             } catch let err {
                 print("Err", err)
                 completionHandler(nil, error)
-                return
             }
             }.resume()
     }
 }
 
 final class NASAAPIClient {
-
-    
-    func fetch() -> ResponseData {
-        var responseInfo = ResponseData(date: nil, explanation: nil, mediaType: nil, serviceVersion: nil, title: nil, url: nil)
-        
-        NasaAPIResponse.fetchData(completionHandler: { (data, error) in
-            if let error = error {
-                print(error)
-                return
-            }
-            guard let data = data else {
-                print("Error getting first todo: result is nil")
-                return
-            }
-
-            debugPrint(data)
-            
-            responseInfo.date = data.date
-            responseInfo.explanation = data.explanation
-            responseInfo.mediaType = data.mediaType
-            responseInfo.serviceVersion = data.serviceVersion
-            responseInfo.title = data.title
-            responseInfo.url = data.url
-            return
-        })
-        return responseInfo
-    }
     
     static func downloadImage(inputURL: URL?, completion: @escaping(Bool, UIImage?) -> ()) {
         guard let url = inputURL else { return }
