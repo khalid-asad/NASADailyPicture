@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ImageDisplayView" customModule="NASADailyPicture" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dL6-dF-Uv2">
+                    <rect key="frame" x="123.5" y="279.5" width="128" height="128"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="128" id="5fD-bE-Ocg"/>
+                        <constraint firstAttribute="width" constant="128" id="zeH-ub-2T7"/>
+                    </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="cAE-Hk-Q6J" appends="YES" id="eA7-su-cZk"/>
+                    </connections>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dga-Xm-jrA">
+                    <rect key="frame" x="0.0" y="423.5" width="375" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstItem="dL6-dF-Uv2" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="2wL-eA-O25"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Dga-Xm-jrA" secondAttribute="trailing" id="8P9-TS-u2W"/>
+                <constraint firstItem="Dga-Xm-jrA" firstAttribute="top" secondItem="dL6-dF-Uv2" secondAttribute="bottom" constant="16" id="PbP-H8-Apg"/>
+                <constraint firstItem="dL6-dF-Uv2" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="WId-Wr-kqO"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Dga-Xm-jrA" secondAttribute="bottom" constant="16" id="aYm-D0-2hr"/>
+                <constraint firstItem="Dga-Xm-jrA" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="dOF-Vb-83O"/>
+                <constraint firstItem="Dga-Xm-jrA" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="riB-Rw-FnU"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="dailyImageView" destination="dL6-dF-Uv2" id="2yS-1N-bJy"/>
+                <outlet property="imageHeightConstraint" destination="5fD-bE-Ocg" id="qNT-Ph-tgX"/>
+                <outlet property="imageWidthConstraint" destination="zeH-ub-2T7" id="e69-bh-7XP"/>
+                <outlet property="titleLabel" destination="Dga-Xm-jrA" id="DO1-1G-XCO"/>
+            </connections>
+        </view>
+        <tapGestureRecognizer id="cAE-Hk-Q6J">
+            <connections>
+                <action selector="didTapImage:" destination="iN0-l3-epB" id="Zx4-hM-Drh"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+</document>
