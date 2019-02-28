@@ -9,8 +9,6 @@
 import Foundation
 import UIKit
 
-typealias InputData = (title: String, image: UIImage)
-
 final class ImageDisplayView: UIView {
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -33,21 +31,33 @@ final class ImageDisplayView: UIView {
 // MARK: - Internal Methods
 extension ImageDisplayView {
     
-    static func create(inputData: InputData) -> ImageDisplayView {
+    static func create(image: UIImage?) -> ImageDisplayView {
         let view: ImageDisplayView = .fromNib()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.configure(inputData: inputData)
+        view.configure(image: image)
         return view
     }
+    
+//    static func setTitle(title: String?) {
+//        titleLabel.configure(text: title)
+//    }
+//
+//    static func setExplanation(explanation: String?) {
+//        titleLabel.configure(text: explanation)
+//    }
+//
+//    static func setDate(date: String?) {
+//        titleLabel.configure(text: date)
+//    }
 }
 
 // MARK: - Private Methods
 extension ImageDisplayView {
     
-    private func configure(inputData: InputData) {
-        titleLabel.configure(text: inputData.title)
+    private func configure(image: UIImage?) {
+        //titleLabel.configure(text: "")
         imageHeightConstraint.constant = UIScreen.main.bounds.height/2
-        dailyImageView.setAutoScaledImage(inputImage: inputData.image, widthConstraint: imageWidthConstraint, heightConstraint: imageHeightConstraint)
+        dailyImageView.setAutoScaledImage(inputImage: image, widthConstraint: imageWidthConstraint, heightConstraint: imageHeightConstraint)
     }
 }
 

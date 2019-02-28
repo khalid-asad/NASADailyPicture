@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     
     private var didTapAction: (() -> Void)?
     
+    private var defaultImage = UIImage(named: "playbutton")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         model = ImageDisplayModel()
@@ -35,14 +37,35 @@ extension ViewController {
         guard let items = model.stackableItems else { return }
         items.forEach {
             switch $0 {
-            case .imageDisplay(let inputData):
-                addImageToBeDisplayed(inputData: inputData)
+            case .video(let url):
+                addVideo(url: url)
+            case .image(let image):
+                addImageToBeDisplayed(image: image)
+            case .date(let date):
+                addDate(date: date)
+            case .title(let title):
+                addTitle(title: title)
+            case .explanation(let explanation):
+                addExplanation(explanation: explanation)
             }
         }
     }
     
-    private func addImageToBeDisplayed(inputData: InputData) {
-        let imageDisplayView = ImageDisplayView.create(inputData: inputData)
+    private func addDate(date: String?) {
+        
+    }
+    
+    private func addVideo(url: URL?) {
+        let videoDisplayView = ImageDisplayView.create(image: defaultImage)
+        stackView.addArrangedSubview(UIView.createView(withSubview: videoDisplayView, edgeInsets: .zero))
+        
+        videoDisplayView.didTapImage = { (newImageView) in
+            // open youtube
+        }
+    }
+    
+    private func addImageToBeDisplayed(image: UIImage?) {
+        let imageDisplayView = ImageDisplayView.create(image: image)
         stackView.addArrangedSubview(UIView.createView(withSubview: imageDisplayView, edgeInsets: .zero))
         
         imageDisplayView.didTapImage = { (newImageView) in
@@ -55,6 +78,16 @@ extension ViewController {
             self.tabBarController?.tabBar.isHidden = true
         }
     }
+    
+    private func addTitle(title: String?) {
+        
+    }
+    
+    private func addExplanation(explanation: String?) {
+        
+    }
+    
+
     
     @objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
         self.navigationController?.isNavigationBarHidden = false

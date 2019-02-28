@@ -20,6 +20,7 @@
 		30175B21222621150092D18A /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30175B20222621150092D18A /* UIImageView+Extensions.swift */; };
 		30175B23222622570092D18A /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30175B22222622570092D18A /* UIView+Extensions.swift */; };
 		30175B27222625670092D18A /* ImageDisplayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30175B26222625670092D18A /* ImageDisplayModel.swift */; };
+		30175B2D222636A10092D18A /* NASAAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30175B2C222636A10092D18A /* NASAAPIClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		30175B20222621150092D18A /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		30175B22222622570092D18A /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		30175B26222625670092D18A /* ImageDisplayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDisplayModel.swift; sourceTree = "<group>"; };
+		30175B2C222636A10092D18A /* NASAAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAAPIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 		30175AE2222618AE0092D18A /* NASADailyPicture */ = {
 			isa = PBXGroup;
 			children = (
+				30175B29222636550092D18A /* API */,
 				30175B11222619270092D18A /* Main */,
 				30175AE3222618AE0092D18A /* AppDelegate.swift */,
 				30175AEA222618AF0092D18A /* Assets.xcassets */,
@@ -205,6 +208,30 @@
 				30175B22222622570092D18A /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		30175B29222636550092D18A /* API */ = {
+			isa = PBXGroup;
+			children = (
+				30175B2A2226366C0092D18A /* Clients */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		30175B2A2226366C0092D18A /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				30175B2B222636790092D18A /* NASAAPI */,
+			);
+			path = Clients;
+			sourceTree = "<group>";
+		};
+		30175B2B222636790092D18A /* NASAAPI */ = {
+			isa = PBXGroup;
+			children = (
+				30175B2C222636A10092D18A /* NASAAPIClient.swift */,
+			);
+			path = NASAAPI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,6 +368,7 @@
 			files = (
 				30175B27222625670092D18A /* ImageDisplayModel.swift in Sources */,
 				30175B23222622570092D18A /* UIView+Extensions.swift in Sources */,
+				30175B2D222636A10092D18A /* NASAAPIClient.swift in Sources */,
 				30175B21222621150092D18A /* UIImageView+Extensions.swift in Sources */,
 				30175B1E22261F880092D18A /* UIConfigureable.swift in Sources */,
 				30175B1A22261DD30092D18A /* ImageDisplayView.swift in Sources */,
