@@ -22,25 +22,40 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         model = ImageDisplayModel()
         
-        configureStackView()
+        fetchData()
     }
 }
 
 extension ViewController {
     
-    private func configureStackView() {
+    func fetchData(_ complete: (() -> Void)? = nil) {
+        model.fetchData(completion: { [unowned self] status in
+            switch status {
+            case .success:
+                DispatchQueue.main.async {
+                    self.configureStackView(items: self.model.stackableItems)
+                }
+            default:
+                break;
+            }
+        })
+    }
+}
+
+extension ViewController {
+    
+    private func configureStackView(items: [ImageDisplayModel.StackableItem]) {
         stackView.arrangedSubviews.forEach {
             stackView.removeArrangedSubview($0)
             $0.removeFromSuperview()
         }
         
-        guard let items = model.stackableItems else { return }
         items.forEach {
             switch $0 {
             case .video(let url, let date, let title, let explanation):
-                addVideo(url: url, date: date, title: title, explanation: explanation)
+                self.addVideo(url: url, date: date, title: title, explanation: explanation)
             case .image(let image, let date, let title, let explanation):
-                addImageToBeDisplayed(image: image, date: date, title: title, explanation: explanation)
+                self.addImageToBeDisplayed(image: image, date: date, title: title, explanation: explanation)
             }
         }
     }
