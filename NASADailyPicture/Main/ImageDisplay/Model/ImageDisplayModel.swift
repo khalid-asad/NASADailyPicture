@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct ImageDisplayModel {
+final class ImageDisplayModel {
     
     // MARK: - ItemStackable
     enum StackableItem {
@@ -17,38 +17,50 @@ struct ImageDisplayModel {
         case image(image: UIImage?, date: String?, title: String?, explanation: String?)
     }
     
-    var stackableItems: [ImageDisplayModel.StackableItem]! {
-        var items: [StackableItem] = []
-        
+    var stackableItems: [ImageDisplayModel.StackableItem] = []
+}
+
+extension ImageDisplayModel {
+    
+    enum FetchInfoState {
+        case fetching
+        case success
+        case failure
+    }
+    
+    func fetchData(completion: @escaping ((FetchInfoState) -> Void)) {
         NasaAPIResponse.fetchData(completionHandler: { (data, error) in
             if let error = error {
+                print("Error: ")
                 print(error)
+                completion(.failure)
                 return
             }
             guard let data = data else {
-                print("Error getting first todo: result is nil")
+                print("Error getting data: result is nil")
+                completion(.failure)
                 return
             }
-            
-            debugPrint(data)
-            
+                        
             if let mediaType = data.mediaType, let url = data.url, let date = data.date, let title = data.title, let explanation = data.explanation {
                 print(mediaType)
                 if mediaType == "video" {
-                    items.append(.video(url: url, date: date, title: title, explanation: explanation))
+                    self.stackableItems.append(.video(url: url, date: date, title: title, explanation: explanation))
+                    completion(.success)
+                    return
                 } else if mediaType == "image" {
                     NASAAPIClient.downloadImage(inputURL: url, completion: { (success, image) in
                         if !success {
                             print("Error: Image not downloaded.")
+                            completion(.failure)
                         } else {
-                            items.append(.image(image: image, date: date, title: title, explanation: explanation))
+                            self.stackableItems.append(.image(image: image, date: date, title: title, explanation: explanation))
+                            completion(.success)
                         }
                     })
+                    return
                 }
             }
         })
-        #warning("REMOVE THIS - THIS IS BAD PRACTICE!!")
-        sleep(3)
-        return items
     }
 }

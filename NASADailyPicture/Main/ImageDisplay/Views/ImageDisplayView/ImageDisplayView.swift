@@ -26,7 +26,7 @@ final class ImageDisplayView: UIView {
         super.awakeFromNib()
         
         titleLabel.font = UIFont(name: "HelveticaNeue", size: 20)
-        descriptionLabel.font = UIFont(name: "HelveticaNeue", size: 16)
+        descriptionLabel.font = UIFont(name: "HelveticaNeue", size: 14)
         dateLabel.font = UIFont(name: "HelveticaNeue", size: 16)
         [titleLabel, descriptionLabel, dateLabel].forEach() {
             $0.textColor = UIColor.black
