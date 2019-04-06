@@ -5,5 +5,5 @@
 - Video opens up in Safari
 
 ## SCREENSHOTS
-![screen shot 2019-02-27 at 11 28 28 pm](https://user-images.githubusercontent.com/37077623/53542004-64d5c400-3aea-11e9-8d2f-90581f5352af.png)
-![screen shot 2019-02-27 at 11 28 33 pm](https://user-images.githubusercontent.com/37077623/53542005-64d5c400-3aea-11e9-919b-b549cd0071d1.png)
+<img width="584" alt="Screen Shot 2019-04-05 at 10 15 03 PM" src="https://user-images.githubusercontent.com/37077623/55663784-0ab6d580-57f1-11e9-903f-c48680b66e36.png">
+<img width="584" alt="Screen Shot 2019-04-05 at 10 15 06 PM" src="https://user-images.githubusercontent.com/37077623/55663785-0ab6d580-57f1-11e9-948e-bb8f9125b4b0.png">
