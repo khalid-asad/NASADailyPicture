@@ -14,6 +14,7 @@ public typealias ResponseData = (date: String?, explanation: String?, mediaType:
 struct NasaAPIResponse: Codable {
     var date: String?
     var explanation: String?
+    var hdurl: URL?
     var mediaType: String?
     var serviceVersion: String?
     var title: String?
@@ -22,6 +23,7 @@ struct NasaAPIResponse: Codable {
     enum CodingKeys: String, CodingKey {
         case date
         case explanation
+        case hdurl
         case mediaType = "media_type"
         case serviceVersion = "service_version"
         case title
@@ -30,16 +32,18 @@ struct NasaAPIResponse: Codable {
     
     static func fetchData(completionHandler: @escaping (NasaAPIResponse?, Error?) -> Void) {
         #warning("Move this into the cloud")
-        let clientKey = "NNKOjkoul8n1CH18TWA9gwngW1s1SmjESPjNoUFo"
-//        let clientKey = "HsOIijCrXICAmzeyai7MeVz2x8tNPZEBxuQ4mpn9"
+//        let clientKey = "NNKOjkoul8n1CH18TWA9gwngW1s1SmjESPjNoUFo"
+        let clientKey = "HsOIijCrXICAmzeyai7MeVz2x8tNPZEBxuQ4mpn9"
         guard let nasaUrl = URL(string: "https://api.nasa.gov/planetary/apod?api_key=" + clientKey) else { return }
         
         URLSession.shared.dataTask(with: nasaUrl) { (data, response, error) in
             guard let data = data else { return }
+            print("Data: ")
+            print(data)
             do {
                 let decoder = JSONDecoder()
                 let responseData = try decoder.decode(NasaAPIResponse.self, from: data)
-                
+                print(responseData)
                 completionHandler(responseData, nil)
             } catch let err {
                 print("Err", err)

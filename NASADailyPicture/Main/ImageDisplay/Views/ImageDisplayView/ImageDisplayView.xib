@@ -27,19 +27,19 @@
                     </connections>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dga-Xm-jrA">
-                    <rect key="frame" x="0.0" y="423.5" width="375" height="20.5"/>
+                    <rect key="frame" x="0.0" y="243" width="375" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOk-ZA-S6O" userLabel="Description Label">
-                    <rect key="frame" x="16" y="460" width="343" height="20.5"/>
+                    <rect key="frame" x="16" y="423.5" width="343" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eq6-ki-AHo" userLabel="Date Label">
-                    <rect key="frame" x="16" y="242.5" width="343" height="21"/>
+                    <rect key="frame" x="16" y="206" width="343" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -51,15 +51,16 @@
                 <constraint firstItem="dL6-dF-Uv2" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="2wL-eA-O25"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Eq6-ki-AHo" secondAttribute="trailing" constant="16" id="3uR-2Y-j5M"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Dga-Xm-jrA" secondAttribute="trailing" id="8P9-TS-u2W"/>
-                <constraint firstItem="Eq6-ki-AHo" firstAttribute="bottom" secondItem="dL6-dF-Uv2" secondAttribute="top" constant="-16" id="9Ax-Qz-k8A"/>
+                <constraint firstItem="Eq6-ki-AHo" firstAttribute="bottom" secondItem="Dga-Xm-jrA" secondAttribute="top" constant="-16" id="9Ax-Qz-k8A"/>
                 <constraint firstItem="VOk-ZA-S6O" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="Atz-GO-q48"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="VOk-ZA-S6O" secondAttribute="trailing" constant="16" id="B2j-Hg-t2m"/>
                 <constraint firstItem="VOk-ZA-S6O" firstAttribute="centerX" secondItem="dL6-dF-Uv2" secondAttribute="centerX" id="H6t-xJ-ytV"/>
-                <constraint firstItem="VOk-ZA-S6O" firstAttribute="top" secondItem="Dga-Xm-jrA" secondAttribute="bottom" constant="16" id="PJA-XR-mCv"/>
-                <constraint firstItem="Dga-Xm-jrA" firstAttribute="top" secondItem="dL6-dF-Uv2" secondAttribute="bottom" constant="16" id="PbP-H8-Apg"/>
+                <constraint firstItem="VOk-ZA-S6O" firstAttribute="top" secondItem="dL6-dF-Uv2" secondAttribute="bottom" constant="16" id="PJA-XR-mCv"/>
+                <constraint firstItem="Dga-Xm-jrA" firstAttribute="top" secondItem="Eq6-ki-AHo" secondAttribute="bottom" constant="16" id="PbP-H8-Apg"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="VOk-ZA-S6O" secondAttribute="bottom" constant="16" id="Q64-WP-0Hq"/>
                 <constraint firstItem="Eq6-ki-AHo" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="Smj-7j-6NM"/>
                 <constraint firstItem="dL6-dF-Uv2" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="WId-Wr-kqO"/>
+                <constraint firstItem="Dga-Xm-jrA" firstAttribute="bottom" secondItem="dL6-dF-Uv2" secondAttribute="top" constant="-16" id="bZI-HS-r9w"/>
                 <constraint firstItem="Dga-Xm-jrA" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="dOF-Vb-83O"/>
                 <constraint firstItem="Eq6-ki-AHo" firstAttribute="centerX" secondItem="dL6-dF-Uv2" secondAttribute="centerX" id="j39-Rg-a9y"/>
                 <constraint firstItem="Dga-Xm-jrA" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="riB-Rw-FnU"/>
